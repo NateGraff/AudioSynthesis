@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioSynthesis", "AudioSynthesis\AudioSynthesis.csproj", "{C7F8D528-6C2B-4132-997F-69A08611F535}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioSynthesisTests", "AudioSynthesisTests\AudioSynthesisTests.csproj", "{EEC87C35-3EDD-4231-80D4-77DFBE33BABB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C7F8D528-6C2B-4132-997F-69A08611F535}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7F8D528-6C2B-4132-997F-69A08611F535}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7F8D528-6C2B-4132-997F-69A08611F535}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEC87C35-3EDD-4231-80D4-77DFBE33BABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC87C35-3EDD-4231-80D4-77DFBE33BABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC87C35-3EDD-4231-80D4-77DFBE33BABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC87C35-3EDD-4231-80D4-77DFBE33BABB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
