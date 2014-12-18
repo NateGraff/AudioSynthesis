@@ -6,21 +6,23 @@ namespace AudioSynthesis
 {
     public class WAVFile
     {
-        private static int writeData(int sampleRate, string filename, short[] audioData)
+        public static int writeData(int sampleRate, string filename, double[] audioData)
         {
-            var waveFormat = new WaveFormat(sampleRate, 8, 1);
+            var waveFormat = new WaveFormat(sampleRate, 16, 1);
             using (var writer = new WaveFileWriter(filename, waveFormat))
             {
-                writer.WriteSamples(audioData, 0, audioData.Length);
+                foreach(var sample in audioData) {
+                    writer.WriteSample((float) sample);
+                }
             }
 
             return 0;
         }
 
-        private static void generateTone(int sampleRate, double frequency, double time, double amplitude, out short[] samples)
+        public static void generateTone(int sampleRate, double frequency, double amplitude, double time, out double[] samples)
         {
             int sampleCount = (int) Math.Floor((double) sampleRate * time);
-            samples = new short[sampleCount];
+            samples = new double[sampleCount];
 
             var myCos = new Sinusoid();
             myCos.Amplitude = amplitude;
@@ -28,7 +30,18 @@ namespace AudioSynthesis
 
             for (var i = 0; i < sampleCount; i++)
             {
-                samples[i] = (short) myCos.sample(i / sampleRate);
+                samples[i] = myCos.sample(i / (double) sampleRate);
+            }
+        }
+
+        public static void generateTone(int sampleRate, Sinusoid func, double time, out double[] samples)
+        {
+            int sampleCount = (int)Math.Floor((double)sampleRate * time);
+            samples = new double[sampleCount];
+
+            for (var i = 0; i < sampleCount; i++)
+            {
+                samples[i] = func.sample(i / (double)sampleRate);
             }
         }
 
@@ -36,9 +49,13 @@ namespace AudioSynthesis
         {
             int sampleRate = 8000;
 
-            short[] data;
-            generateTone(sampleRate, 440.0, 1.0, 0.5, out data);
+            double[] data;
+            var func = new Sinusoid();
+            func.Frequency = 440;
+            func.Amplitude = 0.5;
+            func.Phase = 90;
 
+            generateTone(sampleRate, func, 2.0, out data);
             writeData(sampleRate, "test.wav", data);
         }
     }

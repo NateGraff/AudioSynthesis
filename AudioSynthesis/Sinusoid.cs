@@ -36,8 +36,8 @@ namespace AudioSynthesis
         public double Frequency
         {
             // in Hertz
-            get { return Math.PI * 2 * w; }
-            set { w = value / (2 * Math.PI); }
+            get { return w / (Math.PI * 2); }
+            set { w = value * (2 * Math.PI); }
         }
         public double Phase
         {

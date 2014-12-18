@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SinusoidTests.cs" />
+    <Compile Include="WAVFileTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AudioSynthesis\AudioSynthesis.csproj">

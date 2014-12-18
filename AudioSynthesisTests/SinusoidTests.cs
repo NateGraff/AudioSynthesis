@@ -12,7 +12,7 @@ namespace AudioSynthesisTests
         {
             var myCos = new Sinusoid();
             Assert.AreEqual(1, myCos.Amplitude, 0.001, "Default amplitude not calculated correctly.");
-            Assert.AreEqual(2 * Math.PI, myCos.Frequency, 0.001, "Default frequency not calculated correctly.");
+            Assert.AreEqual(1/(2 * Math.PI), myCos.Frequency, 0.001, "Default frequency not calculated correctly.");
             Assert.AreEqual(0, myCos.Phase, 0.001, "Default phase shift not calculated correctly.");
             Assert.AreEqual(0, myCos.Offset, 0.001, "Default vertical offset not calculated correctly.");
         }
@@ -28,7 +28,7 @@ namespace AudioSynthesisTests
 
             double amplitude, frequency, phase, offset;
             amplitude = 0.5;
-            frequency = 128.80529; // Hz
+            frequency = 3.262675; // Hz
             phase     = 14.32394; // deg
             offset    = 0.1;
 
@@ -77,7 +77,7 @@ namespace AudioSynthesisTests
             var myCos = new Sinusoid();
             myCos.Frequency = 440; // Hz.
             Assert.AreEqual(440, myCos.Frequency, 0.001, "Failed to set frequency.");
-            Assert.AreEqual(-1, myCos.sample(0.044861838), 0.001, "Sampled value of 440 Hz wave not expected.");
+            Assert.AreEqual(-1, myCos.sample(0.001136364), 0.001, "Sampled value of 440 Hz wave not expected.");
         }
 
         [TestMethod]
